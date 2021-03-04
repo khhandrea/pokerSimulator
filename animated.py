@@ -16,7 +16,7 @@ def update_graph():
     plt.xticks(y_pos, objects)
     plt.ylabel('s (%)')
     fig.canvas.draw()
-    win.after(20000, update_graph) # point!
+    win.after(20000, update_graph)
 
 fig = plt.figure()
 win = fig.canvas.manager.window
