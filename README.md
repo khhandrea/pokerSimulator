@@ -10,6 +10,8 @@ Todo
 ---
 - [x] Draw card and update to stack
 - [x] Plot stack with bar chart
-- [ ] Horizontal bar chart
-- [ ] Realtime-updated bar chart in loop
+- [x] Horizontal bar chart
+- [ ] Move sample plot to independent module
+- [ ] Save csv file in for loop (per 100 times?)
+- [ ] Realtime-updated bar chart reading csv
 - [ ] Bar chart value index
