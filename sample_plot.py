@@ -1,45 +1,38 @@
 import tkinter as tk
+import numpy as np
+import time
 
-
-# Define the data points
-data = [20, 15, 10, 7, 5, 4, 3, 2, 1, 1, 0]
+data = [420, 452, 67, 49, 3, 3, 5, 1, 0, 0]
 
 root = tk.Tk()
 root.title("Bar Graph")
 
-c_width = 400  # Define it's width
-c_height = 350  # Define it's height
-c = tk.Canvas(root, width=c_width, height=c_height, bg='white')
-c.pack()
+canvas_width = 400  # Define it's width
+canvas_height = 350  # Define it's height
+canvas = tk.Canvas(root, width=canvas_width, height=canvas_height, bg='white')
+canvas.pack()
 
-# The variables below size the bar graph
-y_stretch = 15  # The highest y = max_data_value * y_stretch
-y_gap = 20  # The gap between lower canvas edge and x axis
-x_stretch = 10  # Stretch x wide enough to fit the variables
-x_width = 20  # The width of the x-axis
-x_gap = 20  # The gap between left canvas edge and y axis
+plot_width = 350
+plot_height = 300
+plot_x = 25
+plot_y = 25
+x_gap = 30
+bar_width = 15
+max_data = np.max(data)
 
-# A quick for loop to calculate the rectangle
-for x, y in enumerate(data):
+for y, x in enumerate(data):
+    x0 = plot_x + x_gap
+    y0 = plot_height*(y+1)/(len(data)) - (bar_width/2)
+    x1 = x0 + data[y]*(plot_width-2*x_gap)/max_data
+    y1 = plot_height*(y+1)/(len(data)) + (bar_width/2)
+    tag_name = "rect" + str(y)
+    canvas.create_rectangle(x0, y0, x1, y1, fill="red", outline="", tags=tag_name)
 
-    # coordinates of each bar
+time.sleep(1)
 
-    # Bottom left coordinate
-    x0 = x * x_stretch + x * x_width + x_gap
-
-    # Top left coordinates
-    y0 = c_height - (y * y_stretch + y_gap)
-
-    # Bottom right coordinates
-    x1 = x * x_stretch + x * x_width + x_width + x_gap
-
-    # Top right coordinates
-    y1 = c_height - y_gap
-
-    # Draw the bar
-    c.create_rectangle(x0, y0, x1, y1, fill="red")
-
-    # Put the y value above the bar
-    c.create_text(x0 + 2, y0, anchor=tk.SW, text=str(y))
+# for y in range(len(data)):
+#     tag_name = "rect" + str(y)
+#     canvas.delete(tag_name)
+    
 
 root.mainloop()
