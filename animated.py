@@ -15,7 +15,7 @@ def update_graph():
     plt.bar(y_pos, flat_list, align='center', alpha=0.5)
     plt.xticks(y_pos, objects)
     plt.ylabel('s (%)')
-    fig.canvas.draw()
+    fig.canvas.draw() # clear canvas
     win.after(20000, update_graph) # after(delay time, function to launch)
 
 fig = plt.figure()

@@ -1,7 +1,6 @@
 import random
 from collections import defaultdict
 import tkinter
-import time
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -171,32 +170,13 @@ def check_card():
 def update_stack(result):
     stack[result] += 1
 
-
-def init_draw_result():
-    # print("stack : " + str(stack))
-    plt.bar(x, stack)
-    plt.xticks(x, x_names, fontsize=10, rotation=90)
-    plt.show()
-
-
-def update_result():
-    # for rect, h in zip(rec)
-    # figure.canvas.draw()
-    # figure.canvas.flush_events()
-    # plt.pause(0.001)
-    pass
-
-
-
 def run_simulator(epoch):
-    # init_draw_result()
     for gen in range(epoch):
         hand.clear()
         draw_card()
         result = check_card()
         update_stack(result)
-        update_result()
-    init_draw_result()
+    print(stack)
 
 
 def handle_return(event=0):
@@ -224,12 +204,6 @@ ROFL = 9
 hand = []
 stack = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 # high, one, two, tripple, straight, flush, fullhouse, 4card, stfl, rofl
-
-### initialize plot ###
-x = np.arange(10)
-x_names = "high, one, two, tripple, straight, flush, fullhouse, 4card, stfl, rofl".split(
-    ", ")
-
 
 ### initialize gui ###
 window = tkinter.Tk()
