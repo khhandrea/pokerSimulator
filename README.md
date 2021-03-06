@@ -6,12 +6,15 @@ Plot realtime bar chart with result after drawing trump cards as much as input v
 
 Outsourcing to Pharminogen Inc.
 
+~~안녕~~
+
 Todo
 ---
 - [x] Draw card and update to stack
 - [x] Plot stack with bar chart
 - [x] Horizontal bar chart
-- [ ] Move sample plot to independent module
-- [ ] Save csv file in for loop (per 100 times?)
-- [ ] Realtime-updated bar chart reading csv
-- [ ] Bar chart value index
+- [x] Move sample plot to independent module
+~~Save csv file in for loop (per 100 times?)~~
+~~Realtime-updated bar chart reading csv~~
+~~Bar chart value index~~
+- [ ] make a shell progress window
